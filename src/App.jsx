@@ -1,306 +1,100 @@
-import rowenaPhoto from "./assets/rowena.jpg";
+import React from 'react';
+import profilePic from './assets/profile.jpg';
+import playlistImg from './assets/playlist.png';
 
-const projects = [
-  {
-    number: "01",
-    category: "WEB DESIGN",
-    title: "Creative Website",
-    description:
-      "A colorful and responsive website made with creativity and passion.",
-    color: "peach",
-    symbol: "✳",
-  },
-  {
-    number: "02",
-    category: "UI / UX DESIGN",
-    title: "Student Dashboard",
-    description:
-      "A simple dashboard concept for organizing school activities.",
-    color: "pink",
-    symbol: "♡",
-  },
-  {
-    number: "03",
-    category: "PERSONAL PROJECT",
-    title: "My Portfolio",
-    description:
-      "My personal space to share my skills, projects, and creativity.",
-    color: "yellow",
-    symbol: "✦",
-  },
-];
+export default function App() {
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
 
-function App() {
   return (
-    <div className="site-shell">
-      <header className="navbar">
-        <a href="#home" className="logo">
-          RS<span>✳</span>
-        </a>
+    <div>
+      <nav className="nav">
+        <h2>RSD</h2>
+        <div>
+          <button onClick={() => scrollTo('home')}>Home</button>
+          <button onClick={() => scrollTo('projects')}>Projects</button>
+          <button onClick={() => scrollTo('skills')}>Skills</button>
+          <button onClick={() => scrollTo('about')}>About</button>
+          <button onClick={() => scrollTo('connect')}>Connect</button>
+        </div>
+      </nav>
 
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#projects">Projects</a>
-          <a href="#about">About</a>
-          <a href="#connect">Connect</a>
-        </nav>
-      </header>
+      <section id="home" className="section hero-section">
+        <div className="hero-text">
+          <div className="badge-pill">✨ 3rd-Year IT Student</div>
+          <h1>Hi, I'm <span className="highlight-name">Rowena Desipeda</span></h1>
+          <p className="hero-description">
+            Welcome to my creative space! I love building simple, aesthetic, and functional web applications with code.
+          </p>
+          <button onClick={() => scrollTo('projects')} className="cta-btn">
+            Explore My Work ↓
+          </button>
+        </div>
+        <div className="hero-img-container">
+          <img src={profilePic} alt="Rowena Desipeda" className="profile-pic" />
+        </div>
+      </section>
 
-      <main>
-        {/* HOME */}
-        <section className="hero section-pad" id="home">
-          <div className="hero-content">
-            <p className="eyebrow">✳ HELLO THERE, I'M</p>
-
-            <h1>
-              Rowena Sam
-              <br />
-              <span>Desipeda</span><i>.</i>
-            </h1>
-
-            <p className="intro">
-              Welcome to my creative space! I'm Rowena Sam Desipeda,
-              an aspiring creative who enjoys learning new things,
-              exploring ideas, and creating beautiful digital experiences.
-            </p>
-
-            <div className="hero-buttons">
-              <a href="#projects" className="button">
-                Explore My Work ↓
-              </a>
-              <a href="#about" className="simple-link">
-                About Me
-              </a>
+      <section id="projects" className="section alt-bg">
+        <h2 className="featured-title">My Featured Project</h2>
+        <div className="title-underline"></div>
+        <div className="projects-container">
+          <div className="project-card">
+            <img src={playlistImg} alt="Ariana Grande Playlist Project" className="project-img" />
+            <div className="project-info">
+              <h3>Ariana Grande Music Playlist Web App</h3>
+              <p>
+                A React-based music playlist interface showcasing discography, albums, and interactive vinyl record player layout.
+              </p>
             </div>
-
-            <p className="hero-note">
-              CREATIVE MIND · CURIOUS HEART · ALWAYS LEARNING
-            </p>
-          </div>
-
-          <div className="hero-image">
-            <span className="sunburst">✳</span>
-
-            <div className="photo-frame">
-              <img
-                src={rowenaPhoto}
-                alt="Rowena Sam Desipeda"
-                className="profile-photo"
-              />
-            </div>
-
-            <div className="photo-sticker">
-              nice to
-              <br />
-              meet you!
-              <span>♡</span>
-            </div>
-
-            <span className="floating-star star-one">✦</span>
-            <span className="floating-star star-two">✳</span>
-          </div>
-
-          <a href="#projects" className="scroll-cue">
-            ↓ SCROLL TO EXPLORE
-          </a>
-        </section>
-
-        {/* MOVING TEXT */}
-        <div className="ticker">
-          <div className="ticker-track">
-            <span>MAKING IDEAS REAL ✳</span>
-            <span>DESIGN WITH HEART ✳</span>
-            <span>ALWAYS GROWING ✳</span>
-            <span>MAKING IDEAS REAL ✳</span>
           </div>
         </div>
+      </section>
 
-        {/* PROJECTS */}
-        <section className="projects section-pad" id="projects">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow light-eyebrow">
-                A FEW THINGS I'VE MADE
-              </p>
-              <h2>
-                My <span>Projects</span><i>.</i>
-              </h2>
-            </div>
+      <section id="skills" className="section">
+        <h2 className="skills-title">My Technical Toolkit</h2>
+        <div className="skills-container">
+          <div className="skill-pill">🌐 HTML5</div>
+          <div className="skill-pill">🎨 CSS3</div>
+          <div className="skill-pill">⚡ JavaScript</div>
+          <div className="skill-pill">⚛️ React.js</div>
+          <div className="skill-pill">🐙 Git & GitHub</div>
+        </div>
+      </section>
 
-            <p className="heading-note">
-              Ideas, creativity, and little things
-              <br />
-              I'm proud to share.
-            </p>
-          </div>
+      <section id="about" className="section alt-bg">
+        <h2>About Me</h2>
+        <p className="about-text">
+          I am Rowena Desipeda, a 3rd-year Information Technology student passionate about building clean, functional, and user-friendly web applications. My technical toolkit includes HTML, CSS, JavaScript, and React.js, which I apply in developing interactive academic projects like my Music Playlist App. My goal is to leverage my skills to create impactful digital experiences and grow as a professional frontend developer.
+        </p>
+      </section>
 
-          <div className="project-grid">
-            {projects.map((project) => (
-              <article
-                className={`project-card ${project.color}`}
-                key={project.number}
-              >
-                <div className="project-top">
-                  <span>{project.number} / 03</span>
-                  <span className="project-icon">{project.symbol}</span>
-                </div>
+      <section id="connect" className="section">
+        <h2>Connect With Me</h2>
+        <p className="connect-subtext">
+          Feel free to reach out for collaborations or project inquiries!
+        </p>
 
-                <div className="project-art">
-                  {project.number === "01" && (
-                    <>
-                      <div className="art-circle"></div>
-                      <div className="art-window">
-                        <b>hello!</b>
-                        <span>
-                          creative things
-                          <br />
-                          start here.
-                        </span>
-                        <i>✳</i>
-                      </div>
-                    </>
-                  )}
-
-                  {project.number === "02" && (
-                    <>
-                      <div className="art-note">
-                        MY TO-DO LIST
-                        <br />
-                        <b>Make it happen!</b>
-                      </div>
-                      <div className="art-spark">♡</div>
-                    </>
-                  )}
-
-                  {project.number === "03" && (
-                    <div className="art-big-type">
-                      MY
-                      <br />
-                      SPACE<span>✳</span>
-                    </div>
-                  )}
-                </div>
-
-                <p className="project-category">{project.category}</p>
-                <h3>{project.title}</h3>
-                <p className="project-description">
-                  {project.description}
-                </p>
-
-                <a href="#connect" className="project-link">
-                  Let's connect <span>↗</span>
-                </a>
-              </article>
-            ))}
-          </div>
-
-          <p className="project-footnote">
-            MORE IDEAS ARE IN THE WORKS ✳
-          </p>
-        </section>
-
-        {/* ABOUT */}
-        <section className="about section-pad" id="about">
-          <div className="about-decoration">✳ ♡ ✦</div>
-
-          <div className="about-content">
-            <p className="eyebrow">GET TO KNOW ME</p>
-
-            <h2>
-              A curious mind
-              <br />
-              with a <span>creative spark</span><i>.</i>
-            </h2>
-
-            <p>
-              Hi! I'm Rowena Sam Desipeda. I enjoy discovering new ideas,
-              learning different skills, and expressing creativity through
-              digital projects.
-            </p>
-
-            <p>
-              This portfolio is my little corner of the internet. Here,
-              I share my projects, interests, and progress as I continue
-              to grow and improve my skills.
-            </p>
-
-            <a href="#connect" className="button">
-              Say Hello ↗
-            </a>
-          </div>
-
-          <div className="about-card">
-            <span className="card-spark">✳</span>
-            <p className="handwritten">Things I love...</p>
-
-            <ul>
-              <li><span>01</span> Creative web design</li>
-              <li><span>02</span> Learning new things</li>
-              <li><span>03</span> Colorful inspiration</li>
-              <li><span>04</span> Creating new ideas</li>
-            </ul>
-
-            <div className="card-footer">
-              STAY CURIOUS <span>♡</span>
-            </div>
-          </div>
-        </section>
-
-        {/* CONNECT */}
-        <section className="connect section-pad" id="connect">
-          <span className="connect-spark">✳</span>
-
-          <p className="eyebrow center-eyebrow">
-            LET'S GET IN TOUCH
-          </p>
-
-          <h2>
-            Let's make
-            <br />
-            <span>something lovely</span><i>.</i>
-          </h2>
-
-          <p className="connect-description">
-            Have a question, an idea, or a project in mind?
-            I'd love to hear from you!
-          </p>
-
-          <a
-            className="button email-button"
-            href="mailto:your.email@example.com"
-          >
-            Email Me ✉
+        <div className="email-pill-container">
+          <a href="mailto:desipedarowena0612@gmail.com" className="email-pill">
+            ✉️ desipedarowena0612@gmail.com
           </a>
+        </div>
 
-          <div className="social-links">
-            <a href="https://github.com/" target="_blank" rel="noreferrer">
-              GitHub ↗
-            </a>
-            <a href="https://linkedin.com/" target="_blank" rel="noreferrer">
-              LinkedIn ↗
-            </a>
-          </div>
+        <div className="social-buttons">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-btn fb-btn">
+            Facebook
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-btn gh-btn">
+            GitHub
+          </a>
+        </div>
+      </section>
 
-          <p className="contact-note">
-            Replace the sample email and social links with your own.
-          </p>
-        </section>
-      </main>
-
-      {/* FOOTER */}
       <footer className="footer">
-        <a href="#home" className="logo">
-          RS<span>✳</span>
-        </a>
-
-        <p>Made with love by Rowena Sam Desipeda</p>
-
-        <a href="#home" className="back-top">
-          BACK TO TOP ↑
-        </a>
+        <p>&copy; 2026 Rowena Desipeda. All Rights Reserved.</p>
       </footer>
     </div>
   );
 }
-
-export default App;
